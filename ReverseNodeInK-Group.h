@@ -16,7 +16,7 @@ public:
             return head;
         }
 
-        // Get the lenght
+        // Get the length
         int length = 0;
         ListNode *node = head;
         while (node != NULL) {
@@ -31,18 +31,18 @@ public:
         int count = k;
         node = head;
         ListNode *tail = NULL;
-        ListNode *tmp = NULL;
+        ListNode *pre = NULL;
         while (count>0) {
             ListNode *next = node->next;
-            node->next = tmp;
-            tmp = node;
+            node->next = pre;
+            pre = node;
             node = next;
             count --;
         }
 
         head->next = node;
         tail = head;
-        head = tmp;
+        head = pre;
         tail->next = this->reverseKGroup(tail->next, k);
         return head;
     }
